@@ -10,7 +10,7 @@
 import { useState, useEffect } from "react";
 // firebase
 import app from "./firebase";
-import { getDatabase, ref, onValue } from "firebase/database";
+import { getDatabase, ref, onValue, remove } from "firebase/database";
 // components
 import Form from "./Components/Form";
 // styles
@@ -26,11 +26,16 @@ const App = () => {
 			const newState = [];
 			const messageData = response.val();
 			for (let key in messageData) {
-				newState.push(messageData[key]);
+				newState.push({ id: key, name: messageData[key] });
 			}
 			setMessage(newState);
 		});
 	}, []);
+
+	const handleDeleteMessage = (messageId) => {
+		const dbRef = ref(database, `/${messageId}`);
+		remove(dbRef);
+	};
 
 	return (
 		<header className="App">
@@ -38,10 +43,18 @@ const App = () => {
 			<h2>Your daily reminder to give yourself some love.</h2>
 			<main>
 				<Form />
+
 				{message.map((message) => {
 					return (
-						<div>
-							<p>{message}</p>
+						<div key={message.id}>
+							<p>{message.name}</p>
+							<button
+								onClick={() => {
+									handleDeleteMessage(message.id);
+								}}
+							>
+								Delete
+							</button>
 						</div>
 					);
 				})}

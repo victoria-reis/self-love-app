@@ -1,6 +1,6 @@
 import { useState } from "react";
 import app from "../firebase";
-import { getDatabase, ref, onValue, push } from "firebase/database";
+import { getDatabase, ref, push } from "firebase/database";
 
 const Form = () => {
 	const database = getDatabase(app);
@@ -44,6 +44,7 @@ const Form = () => {
 				}}
 				value={userInput}
 				placeholder="Write something you love about yourself..."
+				maxLength="60"
 			></textarea>
 
 			<button>Submit!</button>
