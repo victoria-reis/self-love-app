@@ -13,29 +13,41 @@ import app from "./firebase";
 import { getDatabase, ref, onValue, remove } from "firebase/database";
 // components
 import Form from "./Components/Form";
+import Modal from "./Components/Modal";
 // styles
 import "./App.scss";
 
 const App = () => {
 	const [message, setMessage] = useState([]);
+	const [openModal, setOpenModal] = useState(false);
 	const database = getDatabase(app);
 	const dbRef = ref(database);
-
-	useEffect(() => {
-		onValue(dbRef, (response) => {
-			const newState = [];
-			const messageData = response.val();
-			for (let key in messageData) {
-				newState.push({ id: key, name: messageData[key] });
-			}
-			setMessage(newState);
-		});
-	}, []);
 
 	const handleDeleteMessage = (messageId) => {
 		const dbRef = ref(database, `/${messageId}`);
 		remove(dbRef);
 	};
+
+	useEffect(() => {
+		onValue(dbRef, (response) => {
+			const newState = [];
+			const messageData = response.val();
+
+			// console.log(messageData);
+
+			for (let key in messageData) {
+				// console.log(key);
+
+				newState.push({
+					id: key,
+					text: messageData[key].text,
+					date: messageData[key].date,
+				});
+			}
+
+			setMessage(newState);
+		});
+	}, []);
 
 	return (
 		<header className="App">
@@ -46,10 +58,13 @@ const App = () => {
 
 				{message.map((message) => {
 					return (
-						<div key={message.id}>
-							<p>{message.name}</p>
+						<div key={message.id} className="message-container">
+							<p className="message-text">{message.text}</p>
+							<p className="message-date">{message.date}</p>
 							<button
+								className="delete-button"
 								onClick={() => {
+									// setOpenModal(true);
 									handleDeleteMessage(message.id);
 								}}
 							>
@@ -58,6 +73,33 @@ const App = () => {
 						</div>
 					);
 				})}
+
+				{/* {openModal ? (
+					<div className="modal-background">
+						<div className="modal-container">
+							<div className="title">
+								<h3>Are you sure you want to delete it?</h3>
+							</div>
+							<div className="body"></div>
+							<div className="footer">
+								<button
+									onClick={() => {
+										handleDeleteMessage(message.id);
+									}}
+								>
+									Yes, I'm sure!
+								</button>
+								<button
+									onClick={() => {
+										setOpenModal(false);
+									}}
+								>
+									Cancel
+								</button>
+							</div>
+						</div>
+					</div>
+				) : null} */}
 			</main>
 		</header>
 	);

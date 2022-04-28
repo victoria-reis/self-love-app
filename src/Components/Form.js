@@ -3,10 +3,20 @@ import app from "../firebase";
 import { getDatabase, ref, push } from "firebase/database";
 
 const Form = () => {
+	// firebase variables
 	const database = getDatabase(app);
 	const dbRef = ref(database);
-
+	// user's input state
 	const [userInput, setUserInput] = useState("");
+	// const [submissionDate, setSubmissionDate] = useState("");
+	// date variables
+	const today = new Date();
+	const messageDate = today.toLocaleString("default", {
+		weekday: "short",
+		day: "numeric",
+		month: "long",
+		year: "numeric",
+	});
 
 	const handleUserInput = (event) => {
 		setUserInput(event.target.value);
@@ -15,11 +25,13 @@ const Form = () => {
 	const handleUserSubmit = (event) => {
 		event.preventDefault();
 
-		if (userInput) {
-			push(dbRef, userInput.trim());
+		if (userInput.trim()) {
+			push(dbRef, { text: userInput, date: messageDate });
+			// console.log(messageDate);
 			setUserInput("");
 		} else {
 			alert("Please add a message!");
+			setUserInput("");
 		}
 	};
 
