@@ -216,8 +216,51 @@ template {
 	overflow: hidden;
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Ms+Madi&display=swap");
+
+@mixin font-size($sizeValue) {
+	font-size: $sizeValue * 1px;
+	font-size: ($sizeValue/20) * 1rem;
+}
+
+html {
+	font-size: 125%;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background-image: url(../public/conor-sexton-hRemch0ZDwI-unsplash.jpg);
+	// background-position: center;
+	background-repeat: no-repeat;
+	font-family: "Montserrat", sans-serif;
+}
+
+.wrapper {
+	max-width: 85%;
+	margin: 0 auto;
+}
+
 .App {
+	margin: 150px auto;
+	padding: 20px;
+}
+
+main {
+	background-color: rgba(255, 255, 255, 0.8);
+	border-radius: 30px;
 	text-align: center;
+}
+
+h1 {
+	font-family: "Ms Madi", cursive;
+	@include font-size(150);
+	letter-spacing: -2px;
+	margin: 0 auto;
+}
+
+h2 {
+	margin: 0 auto;
 }
 
 textarea {

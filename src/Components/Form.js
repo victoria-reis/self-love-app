@@ -8,7 +8,6 @@ const Form = () => {
 	const dbRef = ref(database);
 	// user's input state
 	const [userInput, setUserInput] = useState("");
-	// const [submissionDate, setSubmissionDate] = useState("");
 	// date variables
 	const today = new Date();
 	const messageDate = today.toLocaleString("default", {
