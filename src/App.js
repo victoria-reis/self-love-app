@@ -43,28 +43,38 @@ const App = () => {
 	}, []);
 
 	return (
-		<main className="App wrapper">
-			<h1>Self-love Reminder</h1>
-			<h2>Your daily reminder to give yourself some love.</h2>
+		<>
+			<main className="App wrapper">
+				<h1>Self-love Reminder</h1>
+				<h2>Your daily reminder to give yourself some love.</h2>
 
-			<Form />
-			{message.map((message) => {
-				return (
-					<div key={message.id} className="message-container">
-						<p className="message-text">{message.text}</p>
-						<p className="message-date">{message.date}</p>
-						<button
-							className="delete-button"
-							onClick={() => {
-								handleDeleteMessage(message.id);
-							}}
-						>
-							Delete
-						</button>
-					</div>
-				);
-			})}
-		</main>
+				<Form />
+				<div className="messages-flex-container wrapper">
+					{message.map((message) => {
+						return (
+							<div key={message.id} className="message-container">
+								<p className="message-text">"{message.text}"</p>
+								<p className="message-date">{message.date}</p>
+								<button
+									className="delete-button"
+									onClick={() => {
+										handleDeleteMessage(message.id);
+									}}
+								>
+									Delete
+								</button>
+							</div>
+						);
+					})}
+				</div>
+			</main>
+			<footer>
+				<p>
+					Created at{" "}
+					<a href="https://junocollege.com/">Juno College of Technology</a>
+				</p>
+			</footer>
+		</>
 	);
 };
 
