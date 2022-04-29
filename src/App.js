@@ -40,7 +40,7 @@ const App = () => {
 					date: messageData[key].date,
 				});
 			}
-			setMessage(newState);
+			setMessage(newState.reverse());
 		});
 	}, []);
 
@@ -73,7 +73,7 @@ const App = () => {
 			<footer>
 				<p>
 					Created at
-					<a href="https://junocollege.com/">Juno College of Technology</a>
+					<a href="https://junocollege.com/"> Juno College of Technology</a>
 				</p>
 			</footer>
 		</>

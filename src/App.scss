@@ -232,9 +232,10 @@ body {
 	padding: 0;
 	background-image: url(../public/harli-marten-n7a2OJDSZns-unsplash.jpg);
 	// background-image: url(../public/conor-sexton-hRemch0ZDwI-unsplash.jpg);
-	background-position: center;
+	background-position: bottom;
 	background-repeat: no-repeat;
 	font-family: "Montserrat", sans-serif;
+	min-height: 100vh;
 }
 
 .wrapper {
@@ -244,7 +245,7 @@ body {
 }
 
 a {
-	text-decoration: none;
+	color: inherit;
 }
 
 .App {
@@ -255,6 +256,7 @@ a {
 main {
 	background-color: rgba(255, 255, 255, 0.7);
 	border-radius: 30px;
+	min-height: 74vh;
 }
 
 h1 {
@@ -436,9 +438,10 @@ footer {
 
 @media (max-width: 400px) {
 	h1 {
-		@include font-size(60);
+		// @include font-size(60);
 		margin: 10px auto;
-		line-height: 50px;
+		line-height: 70px;
+		text-shadow: 1px 2px 0px rgba(115, 115, 115, 1);
 	}
 
 	h2 {
