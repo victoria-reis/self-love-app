@@ -19,7 +19,7 @@ import "./App.scss";
 const App = () => {
 	const [message, setMessage] = useState([]);
 	const database = getDatabase(app);
-	const dbRef = ref(database);
+	// const dbRef = ref(database);
 
 	const handleDeleteMessage = (messageId) => {
 		const dbRef = ref(database, `/${messageId}`);
@@ -27,6 +27,8 @@ const App = () => {
 	};
 
 	useEffect(() => {
+		const database = getDatabase(app);
+		const dbRef = ref(database);
 		onValue(dbRef, (response) => {
 			const newState = [];
 			const messageData = response.val();
@@ -70,7 +72,7 @@ const App = () => {
 			</main>
 			<footer>
 				<p>
-					Created at{" "}
+					Created at
 					<a href="https://junocollege.com/">Juno College of Technology</a>
 				</p>
 			</footer>
