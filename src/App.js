@@ -48,7 +48,7 @@ const App = () => {
 		<>
 			<main className="App wrapper">
 				<h1>Self-love Reminder</h1>
-				<h2>Your daily reminder to give yourself some love.</h2>
+				<h2>Your daily reminder to give yourself some love 🤍</h2>
 
 				<Form />
 				<div className="messages-flex-container wrapper">
