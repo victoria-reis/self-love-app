@@ -19,7 +19,6 @@ import "./App.scss";
 const App = () => {
 	const [message, setMessage] = useState([]);
 	const database = getDatabase(app);
-	// const dbRef = ref(database);
 
 	const handleDeleteMessage = (messageId) => {
 		const dbRef = ref(database, `/${messageId}`);

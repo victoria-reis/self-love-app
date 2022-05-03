@@ -231,7 +231,6 @@ body {
 	margin: 0;
 	padding: 0;
 	background-image: url(../public/harli-marten-n7a2OJDSZns-unsplash.jpg);
-	// background-image: url(../public/conor-sexton-hRemch0ZDwI-unsplash.jpg);
 	background-position: bottom;
 	background-repeat: no-repeat;
 	font-family: "Montserrat", sans-serif;
@@ -267,10 +266,6 @@ h1 {
 	text-align: center;
 	display: block;
 	margin: 10px;
-	// text-shadow: 1px 2px 0px rgba(147, 185, 196, 1),
-	// 	2px 4px 0px rgba(180, 194, 195, 1);
-	// text-shadow: 1px 2px 0px rgba(147, 185, 196, 1),
-	// 	2px 4px 3px rgba(180, 194, 195, 1);
 	text-shadow: 1px 2px 0px rgba(115, 115, 115, 1),
 		2px 4px 3px rgba(115, 115, 115, 1);
 }
@@ -279,13 +274,11 @@ h2 {
 	margin: 0 auto;
 	margin-top: -20px;
 	display: block;
-	@include font-size(40);
-	font-family: "Ms Madi", cursive;
+	@include font-size(20);
 	text-align: center;
 }
 
 .form {
-	// border: 2px solid red;
 	display: flex;
 	flex-direction: column;
 	margin: 60px auto 40px;
@@ -301,10 +294,6 @@ h2 {
 			outline: 1px solid #93b9c4;
 		}
 	}
-
-	// ::placeholder {
-	// 	font-family: ;
-	// }
 
 	button {
 		border: none;
@@ -323,7 +312,6 @@ h2 {
 }
 
 .messages-flex-container {
-	// border: 2px solid red;
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
@@ -331,7 +319,6 @@ h2 {
 
 .message-container {
 	background-color: white;
-	// border: 1px solid blue;
 	box-shadow: 1px 1px 5px grey;
 	margin: 10px;
 	padding: 8px;
@@ -354,19 +341,12 @@ h2 {
 	}
 }
 
-// .message-text {
-// 	border: 1px solid red;
-// }
-
 .delete-button {
 	border: none;
-	// margin: 5px;
 	display: block;
 	position: absolute;
 	bottom: 8px;
 	right: 10px;
-	// margin-top: auto;
-	// margin-left: auto;
 	padding: 10px;
 	@include font-size(15);
 	border-radius: 20px;
@@ -416,10 +396,6 @@ footer {
 		@include font-size(80);
 	}
 
-	h2 {
-		@include font-size(30);
-	}
-
 	.form {
 		margin: 30px auto 20px;
 		width: 95%;
@@ -438,14 +414,13 @@ footer {
 
 @media (max-width: 400px) {
 	h1 {
-		// @include font-size(60);
 		margin: 10px auto;
 		line-height: 70px;
 		text-shadow: 1px 2px 0px rgba(115, 115, 115, 1);
 	}
 
 	h2 {
-		@include font-size(25);
+		@include font-size(18);
 		margin-top: 10px;
 	}
 

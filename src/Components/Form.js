@@ -26,7 +26,6 @@ const Form = () => {
 
 		if (userInput.trim()) {
 			push(dbRef, { text: userInput, date: messageDate });
-			// console.log(messageDate);
 			setUserInput("");
 		} else {
 			alert("Please add a message!");
